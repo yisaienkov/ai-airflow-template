@@ -1,4 +1,11 @@
 # ai-airflow-template
+- - - -
+
+## Create folder for save logs
+
+```bash
+mkdir -p logs
+```
 
 ##  Running Airflow
 
