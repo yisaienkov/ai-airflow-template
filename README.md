@@ -1,9 +1,9 @@
 # ai-airflow-template
 
-```bash
-mkdir -p app/
-```
+##  Running Airflow
 
 ```bash
 docker-compose up
 ```
+
+> The webserver is available at: http://localhost:8080.
