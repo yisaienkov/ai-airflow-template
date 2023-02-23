@@ -1,0 +1,24 @@
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+      - ./app:/usr/local/airflow/app
+    ports:
+      - "8080:8080"
+    environment:
+      - EXECUTOR=Local
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
